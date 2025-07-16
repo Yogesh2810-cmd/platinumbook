@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XYZ Betting</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: #121926;
+      background-color: #020c1b;
       color: #f0f0f5;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     header {
-      background: #0d1117;
+      background: #001033;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #FF4E00;
+      border-bottom: 2px solid #00FFFF;
     }
 
     header img.logo {
@@ -34,7 +38,7 @@
 
     .social-icons a {
       margin-left: 15px;
-      color: #FF4E00;
+      color: #00FFFF;
       font-size: 28px;
       transition: transform 0.2s;
     }
@@ -54,7 +58,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #FF4E00;
     }
 
     .hero::before {
@@ -72,13 +75,25 @@
       position: relative;
       z-index: 2;
       font-size: 3.5em;
-      padding: 0 20px;
-      text-shadow: 2px 2px 20px black;
+      max-width: 90%;
+      line-height: 1.3;
+      background: linear-gradient(-45deg, #FF00FF, #00FFFF, #00ffff, #ff0);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 6s ease infinite;
+      opacity: 0;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .about {
       padding: 40px 20px;
-      background-color: #1a1f2e;
+      background-color: #031634;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -92,7 +107,7 @@
     }
 
     .about-text h2 {
-      color: #FF4E00;
+      color: #00FFFF;
       margin-bottom: 10px;
     }
 
@@ -111,20 +126,23 @@
     .about-video video {
       width: 100%;
       height: auto;
-      border: 3px solid #FF4E00;
+      border: 2px solid #00FFFF;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 78, 0, 0.25);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     }
 
     .services {
       padding: 60px 5%;
-      background-color: #141c2b;
+      background-color: #011122;
     }
 
     .services h2 {
       text-align: center;
       font-size: 2.5rem;
-      color: #FF4E00;
+      background: linear-gradient(90deg, #FF00FF, #00FFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
       margin-bottom: 40px;
     }
 
@@ -135,24 +153,24 @@
     }
 
     .card {
-      background: #1b2735;
-      border: 2px solid #FF4E00;
+      background: rgba(3, 20, 46, 0.95);
+      border: 2px solid #00FFFF;
       padding: 25px 20px;
       border-radius: 12px;
       text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 78, 0, 0.05);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
     }
 
     .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: #1f2833;
-      border-color: #001aff;
-      box-shadow: 0 0 15px rgba(255, 78, 0, 0.3);
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);
+      border-color: #FF00FF;
     }
 
     .card h3 {
-      color: #FF4E00;
+      color: #00FFFF;
       margin-bottom: 10px;
     }
 
@@ -163,10 +181,11 @@
     .card a {
       color: inherit;
       text-decoration: none;
+      display: block;
     }
 
     .contact-new {
-      background: #0e1320;
+      background: #00152c;
       padding: 60px 20px;
       color: #eee;
     }
@@ -186,7 +205,7 @@
 
     .contact-left h2 {
       font-size: 2.2rem;
-      color: #FF4E00;
+      color: #00FFFF;
       margin-bottom: 10px;
     }
 
@@ -211,7 +230,7 @@
 
     .contact-details li i {
       font-size: 22px;
-      color: #FFD700;
+      color: #FF00FF;
     }
 
     .contact-details a {
@@ -221,10 +240,11 @@
 
     .contact-right {
       flex: 1 1 300px;
-      background: #1a1f2e;
+      background: #02172f;
       padding: 30px;
       border-radius: 10px;
       border: 1px solid #444;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
     }
 
     .contact-right form {
@@ -236,14 +256,22 @@
     .contact-right input,
     .contact-right textarea {
       padding: 12px;
-      background: #222c3c;
+      background: #0c1a2e;
       border: 1px solid #555;
       border-radius: 6px;
       color: #eee;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-right input:focus,
+    .contact-right textarea:focus {
+      border-color: #00FFFF;
+      box-shadow: 0 0 8px #00FFFF;
+      outline: none;
     }
 
     .contact-right button {
-      background: linear-gradient(135deg, #FF4E00, #FFD700);
+      background: linear-gradient(135deg, #00FFFF, #FF00FF);
       color: #000;
       padding: 12px;
       border: none;
@@ -254,18 +282,18 @@
     }
 
     .contact-right button:hover {
-      background: linear-gradient(135deg, #FFD700, #FF4E00);
+      background: linear-gradient(135deg, #FF00FF, #00FFFF);
     }
 
     .footer {
-      background: #0b0f1a;
+      background: #010a1a;
       color: #bbb;
       padding: 20px;
       text-align: center;
     }
 
     .footer a {
-      color: #FF4E00;
+      color: #00FFFF;
       margin: 0 10px;
       font-size: 20px;
     }
@@ -274,12 +302,12 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #FF4E00;
-      color: #111;
+      background: #00FFFF;
+      color: #000;
       padding: 12px;
       border-radius: 50%;
       font-size: 28px;
-      box-shadow: 0 0 12px #FF4E00;
+      box-shadow: 0 0 12px #00FFFF;
       z-index: 1000;
       transition: transform 0.2s;
     }
@@ -305,7 +333,9 @@
       }
 
       .hero h1 {
-        font-size: 2em;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        white-space: normal;
       }
 
       .about {
@@ -313,12 +343,11 @@
       }
 
       .about-video {
-        width: 100%;
+        width: 90%;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" alt="XYZ Logo" class="logo" />
@@ -329,7 +358,7 @@
   </header>
 
   <section class="hero">
-    <h1>Welcome to XYZ Betting Platform</h1>
+    <h1 id="hero-text">Welcome to XYZ Betting Platform</h1>
   </section>
 
   <section class="about">
@@ -396,5 +425,43 @@
   <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      gsap.to("#hero-text", {
+        duration: 1.5,
+        opacity: 1,
+        y: -20,
+        ease: "power2.out",
+      });
+
+      gsap.from(".about-text", {
+        scrollTrigger: ".about-text",
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+      });
+
+      gsap.from(".about-video", {
+        scrollTrigger: ".about-video",
+        x: 80,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.4,
+        ease: "power3.out"
+      });
+
+      gsap.from(".card", {
+        scrollTrigger: ".service-grid",
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
 </body>
 </html>
